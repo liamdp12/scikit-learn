@@ -518,7 +518,7 @@ class LinearDiscriminantAnalysis(BaseEstimator, LinearClassifierMixin,
 
         return X_new[:, :self._max_components]
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Estimate probability.
 
         Parameters
@@ -758,7 +758,7 @@ class QuadraticDiscriminantAnalysis(BaseEstimator, ClassifierMixin):
         y_pred = self.classes_.take(d.argmax(1))
         return y_pred
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Return posterior probabilities of classification.
 
         Parameters

@@ -123,7 +123,7 @@ class _ConstantPredictor(BaseEstimator):
 
         return np.repeat(self.y_, X.shape[0])
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         check_is_fitted(self, 'y_')
 
         return np.repeat([np.hstack([1 - self.y_, self.y_])],
@@ -315,7 +315,7 @@ class OneVsRestClassifier(BaseEstimator, ClassifierMixin, MetaEstimatorMixin,
             return self.label_binarizer_.inverse_transform(indicator)
 
     @if_delegate_has_method(['_first_estimator', 'estimator'])
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Probability estimates.
 
         The returned estimates for all classes are ordered by label of classes.

@@ -322,7 +322,7 @@ class ZeroEstimator:
         y.fill(0.0)
         return y
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         return self.predict(X)
 
 
@@ -2158,7 +2158,7 @@ shape (n_estimators, ``loss_.K``)
                 self.loss_._raw_prediction_to_decision(raw_predictions)
             yield self.classes_.take(encoded_labels, axis=0)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict class probabilities for X.
 
         Parameters

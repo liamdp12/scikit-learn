@@ -198,7 +198,7 @@ class CalibratedClassifierCV(BaseEstimator, ClassifierMixin):
 
         return self
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Posterior probabilities of classification
 
         This function returns posterior probabilities of classification
@@ -358,7 +358,7 @@ class _CalibratedClassifier:
 
         return self
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Posterior probabilities of classification
 
         This function returns posterior probabilities of classification

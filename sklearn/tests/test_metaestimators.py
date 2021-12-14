@@ -85,7 +85,7 @@ def test_metaestimator_delegation():
             return np.ones(X.shape[0])
 
         @hides
-        def predict_proba(self, X, *args, **kwargs):
+        def predict_proba(self, X, uncertainty = [], *args, **kwargs):
             self._check_fit()
             return np.ones(X.shape[0])
 

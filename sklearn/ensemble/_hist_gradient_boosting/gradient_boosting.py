@@ -801,7 +801,7 @@ class HistGradientBoostingClassifier(BaseHistGradientBoosting,
         encoded_classes = np.argmax(self.predict_proba(X), axis=1)
         return self.classes_[encoded_classes]
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict class probabilities for X.
 
         Parameters

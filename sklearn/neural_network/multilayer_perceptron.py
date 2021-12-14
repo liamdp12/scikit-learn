@@ -1041,7 +1041,7 @@ class MLPClassifier(BaseMultilayerPerceptron, ClassifierMixin):
         y_prob = self.predict_proba(X)
         return np.log(y_prob, out=y_prob)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Probability estimates.
 
         Parameters

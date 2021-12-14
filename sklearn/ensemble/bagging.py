@@ -649,7 +649,7 @@ class BaggingClassifier(BaseBagging, ClassifierMixin):
         return self.classes_.take((np.argmax(predicted_probabilitiy, axis=1)),
                                   axis=0)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict class probabilities for X.
 
         The predicted class probabilities of an input sample is computed as

@@ -168,7 +168,7 @@ class BaseLabelPropagation(BaseEstimator, ClassifierMixin, metaclass=ABCMeta):
         probas = self.predict_proba(X)
         return self.classes_[np.argmax(probas, axis=1)].ravel()
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict probability for each possible outcome.
 
         Compute the probability estimates for each single sample in X

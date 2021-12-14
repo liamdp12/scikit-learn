@@ -1621,7 +1621,7 @@ class LogisticRegression(BaseEstimator, LinearClassifierMixin,
 
         return self
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Probability estimates.
 
         The returned estimates for all classes are ordered by the

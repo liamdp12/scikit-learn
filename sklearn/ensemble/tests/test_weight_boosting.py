@@ -60,7 +60,7 @@ def test_samme_proba():
     # _samme_proba calls estimator.predict_proba.
     # Make a mock object so I can control what gets returned.
     class MockEstimator:
-        def predict_proba(self, X):
+        def predict_proba(self, X, uncertainty = []):
             assert_array_equal(X.shape, probs.shape)
             return probs
     mock = MockEstimator()

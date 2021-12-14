@@ -390,7 +390,7 @@ class MockEst:
     def predict(self, X):
         return X
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         return X
 
     def score(self, X):
@@ -431,7 +431,7 @@ class MockMetaEstimator:
         """
 
     @if_delegate_has_method(delegate=('delegate'))
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """This is available only if delegate has predict_proba.
 
         Parameters

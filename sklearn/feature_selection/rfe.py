@@ -287,7 +287,7 @@ class RFE(BaseEstimator, MetaEstimatorMixin, SelectorMixin):
         return self.estimator_.decision_function(self.transform(X))
 
     @if_delegate_has_method(delegate='estimator')
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict class probabilities for X.
 
         Parameters

@@ -1346,7 +1346,7 @@ class _NoSampleWeightWrapper(BaseEstimator):
     def predict(self, X):
         return self.est.predict(X)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         return self.est.predict_proba(X)
 
 

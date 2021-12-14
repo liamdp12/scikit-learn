@@ -457,7 +457,7 @@ class BaseSearchCV(BaseEstimator, MetaEstimatorMixin, metaclass=ABCMeta):
         return self.best_estimator_.predict(X)
 
     @if_delegate_has_method(delegate=('best_estimator_', 'estimator'))
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Call predict_proba on the estimator with the best found parameters.
 
         Only available if ``refit=True`` and the underlying estimator supports

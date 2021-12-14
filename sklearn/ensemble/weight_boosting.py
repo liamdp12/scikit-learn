@@ -749,7 +749,7 @@ class AdaBoostClassifier(BaseWeightBoosting, ClassifierMixin):
             else:
                 yield pred / norm
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict class probabilities for X.
 
         The predicted class probabilities of an input sample is computed as

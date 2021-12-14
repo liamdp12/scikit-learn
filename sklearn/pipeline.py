@@ -455,7 +455,7 @@ class Pipeline(_BaseComposition):
         return y_pred
 
     @if_delegate_has_method(delegate='_final_estimator')
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Apply transforms, and predict_proba of the final estimator
 
         Parameters

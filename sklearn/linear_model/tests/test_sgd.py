@@ -59,7 +59,7 @@ class _SparseSGDClassifier(linear_model.SGDClassifier):
         X = sp.csr_matrix(X)
         return super().decision_function(X)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         X = sp.csr_matrix(X)
         return super().predict_proba(X)
 

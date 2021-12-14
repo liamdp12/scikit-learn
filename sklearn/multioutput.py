@@ -324,7 +324,7 @@ class MultiOutputClassifier(MultiOutputEstimator, ClassifierMixin):
     def __init__(self, estimator, n_jobs=None):
         super().__init__(estimator, n_jobs)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Probability estimates.
         Returns prediction probabilities for each class of each output.
 
@@ -588,7 +588,7 @@ class ClassifierChain(_BaseChain, ClassifierMixin, MetaEstimatorMixin):
         return self
 
     @if_delegate_has_method('base_estimator')
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict probability estimates.
 
         Parameters

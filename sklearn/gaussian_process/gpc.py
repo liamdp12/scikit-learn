@@ -265,7 +265,7 @@ class _BinaryGaussianProcessClassifierLaplace(BaseEstimator):
 
         return np.where(f_star > 0, self.classes_[1], self.classes_[0])
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Return probability estimates for the test vector X.
 
         Parameters
@@ -287,7 +287,7 @@ class _BinaryGaussianProcessClassifierLaplace(BaseEstimator):
         v = solve(self.L_, self.W_sr_[:, np.newaxis] * K_star)  # Line 5
         # Line 6 (compute np.diag(v.T.dot(v)) via einsum)
         var_f_star = self.kernel_.diag(X) - np.einsum("ij,ij->j", v, v)
-
+        uncertainty.append(var_f_star)
         # Line 7:
         # Approximate \int log(z) * N(z | f_star, var_f_star)
         # Approximation is due to Williams & Barber, "Bayesian Classification
@@ -659,7 +659,7 @@ class GaussianProcessClassifier(BaseEstimator, ClassifierMixin):
         X = check_array(X)
         return self.base_estimator_.predict(X)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Return probability estimates for the test vector X.
 
         Parameters

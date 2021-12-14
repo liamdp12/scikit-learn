@@ -233,7 +233,7 @@ class DummyClassifier(BaseEstimator, ClassifierMixin, MultiOutputMixin):
 
         return y
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """
         Return probability estimates for the test vectors X.
 

@@ -373,7 +373,7 @@ class BaseMixture(DensityMixin, BaseEstimator, metaclass=ABCMeta):
         X = _check_X(X, None, self.means_.shape[1])
         return self._estimate_weighted_log_prob(X).argmax(axis=1)
 
-    def predict_proba(self, X):
+    def predict_proba(self, X, uncertainty = []):
         """Predict posterior probability of each component given the data.
 
         Parameters

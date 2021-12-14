@@ -816,7 +816,7 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
             X_idx_sorted=X_idx_sorted)
         return self
 
-    def predict_proba(self, X, check_input=True):
+    def predict_proba(self, X, uncertainty = [], check_input=True):
         """Predict class probabilities of the input samples X.
 
         The predicted class probability is the fraction of samples of the same
