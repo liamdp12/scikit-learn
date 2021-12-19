@@ -679,7 +679,7 @@ class GaussianProcessClassifier(BaseEstimator, ClassifierMixin):
                              "predicting probability estimates. Use "
                              "one_vs_rest mode instead.")
         X = check_array(X)
-        return self.base_estimator_.predict_proba(X)
+        return self.base_estimator_.predict_proba(X, uncertainty = uncertainty)
 
     @property
     def kernel_(self):
